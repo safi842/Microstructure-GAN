@@ -1,10 +1,12 @@
 import numpy as np
 import os
+from PIL import Image
 import pickle
 import streamlit as st
 import sys
 import urllib
 import torch
+import random
 import biggan
 from torchvision.utils import make_grid
 
@@ -22,11 +24,23 @@ def main():
     time_dict = {'90M': 0, '24H': 1, '3H': 2, '5M': 3, '8H': 4, '85H': 5, '1H': 6, '48H': 7}
     cool_dict = {'Quench': 0, 'Air Cool': 1, 'Furnace Cool': 2, '650C-1H': 3}
     model = load_gan()
+    st.sidebar.subheader('Generate a new latent Vector')
+    if st.sidebar.button('New z'):
+    	seed = random.randint(0,100)
+    	torch.manual_seed(seed)
+    else:
+    	seed = 7
+    	torch.manual_seed(seed)
     noise = torch.randn(1,128)
     image_out = generate_img(model, noise, temp_dict[anneal_temp], time_dict[anneal_time], cool_dict[cooling])
     st.subheader('Generated Microstructure for the given processing conditions')
     st.text("")
     st.image(image_out, use_column_width=False)
+    if st.button('Save Image'):
+	if not os.path.exists('Generated Images'):
+    		os.makedirs('Generated Images')
+    	im = Image.fromarray((image_out * 255).astype(np.uint8))
+    	im.save(f"./Generated Images/{anneal_temp}-{anneal_time}-{cooling}-{seed}.jpeg")
 
 @st.cache(suppress_st_warning=True)
 def load_gan():
@@ -43,3 +57,8 @@ def generate_img(model,noise, y_temp, y_time, y_cool):
 		synthetic = model(noise, y_temp, y_time, y_cool)
 	synthetic = make_grid(synthetic, normalize=True)
 	return np.transpose(synthetic.numpy() ,(1,2,0))
+
+
+
+if __name__ == "__main__":
+  main()
