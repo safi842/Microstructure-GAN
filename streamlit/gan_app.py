@@ -37,7 +37,7 @@ def main():
     st.text("")
     st.image(image_out, use_column_width=False)
     if st.button('Save Image'):
-	if not os.path.exists('Generated Images'):
+    	if not os.path.exists('Generated Images'):
     		os.makedirs('Generated Images')
     	im = Image.fromarray((image_out * 255).astype(np.uint8))
     	im.save(f"./Generated Images/{anneal_temp}-{anneal_time}-{cooling}-{seed}.jpeg")
