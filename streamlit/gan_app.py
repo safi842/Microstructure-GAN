@@ -42,7 +42,7 @@ def main():
     st.sidebar.subheader('Generate a new latent Vector')
     state['seed'] =  7
     if st.sidebar.button('New z'):
-        state['seed'] = random.randint(0,500)
+        state['seed'] = random.randint(0,1000)
     rng = np.random.RandomState(state['seed'])
     noise = torch.tensor(rng.normal(0, 1, (1, 384))).float()
     state['noise'] = noise.numpy()
