@@ -16,9 +16,9 @@ import torch.nn.functional as F
 import numpy as np
 from torchvision.utils import make_grid
 
-class ccbn(nn.Module):
+class ClassConditionalBN(nn.Module):
     def __init__(self, input_size, output_size, eps=1e-4, momentum=0.1):
-        super(ccbn, self).__init__()
+        super(ClassConditionalBN, self).__init__()
         self.output_size, self.input_size = output_size, input_size
         # Prepare gain and bias layers
         self.gain = spectral_norm(nn.Linear(input_size, output_size, bias = False), eps = 1e-4)
@@ -78,7 +78,7 @@ class Self_Attn(nn.Module):
         return out
 
 class GeneratorResBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, upsample = None, embed_dim = 128, dim_z = 128):
+    def __init__(self, in_channels, out_channels, upsample = None, embed_dim = 128, dim_z = 384):
         super(GeneratorResBlock, self).__init__()
         self.in_channels = in_channels
         self.out_channels = out_channels
@@ -89,10 +89,10 @@ class GeneratorResBlock(nn.Module):
         self.conv3 = spectral_norm(nn.Conv2d(self.hidden_channels, self.hidden_channels, kernel_size = 3, padding = 1), eps = 1e-4)
         self.conv4 = spectral_norm(nn.Conv2d(self.hidden_channels, self.out_channels, kernel_size = 1, padding = 0), eps = 1e-4)
         
-        self.bn1 = ccbn(input_size = (3 * embed_dim) + dim_z, output_size = self.in_channels)
-        self.bn2 = ccbn(input_size = (3 * embed_dim) + dim_z, output_size = self.hidden_channels)
-        self.bn3 = ccbn(input_size = (3 * embed_dim) + dim_z, output_size = self.hidden_channels)
-        self.bn4 = ccbn(input_size = (3 * embed_dim) + dim_z, output_size = self.hidden_channels)
+        self.bn1 = ClassConditionalBN((3 * embed_dim) + dim_z, self.in_channels)
+        self.bn2 = ClassConditionalBN((3 * embed_dim) + dim_z, self.hidden_channels)
+        self.bn3 = ClassConditionalBN((3 * embed_dim) + dim_z, self.hidden_channels)
+        self.bn4 = ClassConditionalBN((3 * embed_dim) + dim_z, self.hidden_channels)
         
         self.activation = nn.ReLU(inplace=False)
         
@@ -118,8 +118,8 @@ class GeneratorResBlock(nn.Module):
         return h + x
 
 class Generator(nn.Module):
-    def __init__(self, G_ch = 64, dim_z=128, bottom_width=4, img_channels = 1,
-                 init = 'ortho',n_classes_temp = 7, n_classes_time = 8, n_classes_cool = 4, embed_dim = 128):
+    def __init__(self, G_ch = 64, dim_z = 384, bottom_width=4, img_channels = 1,
+                 init = 'N02',n_classes_temp = 7, n_classes_time = 8, n_classes_cool = 4, embed_dim = 128):
         super(Generator, self).__init__()
         self.ch = G_ch
         self.dim_z = dim_z
@@ -172,7 +172,7 @@ class Generator(nn.Module):
                 else:
                     print('Init style not recognized...')
                 self.param_count += sum([p.data.nelement() for p in module.parameters()])
-        print("Param count for G's initialized parameters: %d Million" % (self.param_count/1000000))
+        #print("Param count for G's initialized parameters: %d Million" % (self.param_count/1000000))
         
         
     def forward(self,z , y_temp, y_time, y_cool):
