@@ -10,7 +10,6 @@ import torch.utils.data
 import torchvision.transforms as transforms
 import torchvision.utils as vutils
 from torch.utils.data import DataLoader, Dataset
-import pytorch_lightning as pl
 from torch.nn.utils import spectral_norm
 import torch.nn.functional as F
 import numpy as np
