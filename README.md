@@ -3,6 +3,7 @@
 ![Overview](https://github.com/safi842/Microstructure-GAN/blob/main/docs/Omni%20BigGAN%20-%20Overview.jpg)
 
 **Generating Material Microstructures from Processing Methods using Generative Adversarial Networks**<br>
+Mohammad Safiuddin, Ch Likith Reddy, Ganesh Vasantada, CHJNS Harsha, Dr. Srinu Gangolu<br>
 
 [comment]: <> (Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, Timo Aila<br>)
 [comment]: <> (Paper: http://arxiv.org/abs/1912.04958<br>)
