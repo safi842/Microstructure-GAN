@@ -1,6 +1,7 @@
 ## Microstructure-GAN &mdash; Pytorch Implementation
 
-![Teaser image](./docs/Omni BigGAN - Overview.pdf 'teaser image')
+<object data="./docs/Omni BigGAN - Overview.pdf" type="application/pdf" width="100%">
+</object>
 
 **Generating Material Microstructures from Processing Methods using Generative Adversarial Networks**<br>
 
