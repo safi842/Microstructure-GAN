@@ -15,7 +15,7 @@ the processing-structure relationship is modelled as deep learning based conditi
 needs little domain awareness, and can be applied to a wide variety of material
 systems. We develop a GAN (Generative Adversarial Network) to synthesize
 images based on given processing conditions. Results show that our GAN model
-can produce high-fidelity multiphase microstructures which have a good correlation with the given processing conditions*
+can produce high-fidelity multiphase microstructures which have a good correlation with the given processing conditions.*
 
 ### Results:
 
