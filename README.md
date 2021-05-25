@@ -8,7 +8,7 @@ Mohammad Safiuddin, Ch Likith Reddy, Ganesh Vasantada, CHJNS Harsha, Dr. Srinu G
 [comment]: <> (Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, Timo Aila<br>)
 [comment]: <> (Paper: http://arxiv.org/abs/1912.04958<br>)
 
-Abstract: *The microstructure of material strongly influences its mechanical properties
+Abstract: *The microstructure of a material strongly influences its mechanical properties
 and the microstructure itself is influenced by the processing conditions. Thus,
 establishing a Process-Structure-Property relationship is a crucial task in material design and is of interest in many engineering applications. In this work,
 the processing-structure relationship is modelled as deep learning based conditional image synthesis problem. This approach is devoid of feature engineering,
