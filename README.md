@@ -1,7 +1,6 @@
 ## Microstructure-GAN &mdash; Pytorch Implementation
 
-<object data="./docs/Omni BigGAN - Overview.pdf" type="application/pdf" width="100%">
-</object>
+![Overview](https://github.com/safi842/Microstructure-GAN/blob/main/docs/Omni%20BigGAN%20-%20Overview.jpg)
 
 **Generating Material Microstructures from Processing Methods using Generative Adversarial Networks**<br>
 
@@ -16,3 +15,10 @@ needs little domain awareness, and can be applied to a wide variety of material
 systems. We develop a GAN (Generative Adversarial Network) to synthesize
 images based on given processing conditions. Results show that our GAN model
 can produce high-fidelity multiphase microstructures which have a good correlation with the given processing conditions*
+
+### Results:
+
+<p align="center">
+  <img src="https://github.com/safi842/Microstructure-GAN/blob/main/docs/Gen%20vs%20Real.jpg" width="500" />
+</p>
+
