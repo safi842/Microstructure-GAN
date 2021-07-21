@@ -2,8 +2,10 @@
 
 ![Overview](https://github.com/safi842/Microstructure-GAN/blob/main/docs/Omni%20BigGAN%20-%20Overview.jpg)
 
-**Establishing process structure linkages using Generative Adversarial Networks**<br>
+**Establishing process-structure linkages using Generative Adversarial Networks**<br>
 Mohammad Safiuddin, Ch Likith Reddy, Ganesh Vasantada, CHJNS Harsha, Dr. Srinu Gangolu<br>
+
+Paper: https://arxiv.org/abs/2107.09402<br>
 
 [comment]: <> (Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, Timo Aila<br>)
 [comment]: <> (Paper: http://arxiv.org/abs/1912.04958<br>)
