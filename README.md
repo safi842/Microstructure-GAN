@@ -25,3 +25,16 @@ can produce high-fidelity multiphase microstructures which have a good correlati
   <img src="https://github.com/safi842/Microstructure-GAN/blob/main/docs/Gen%20vs%20Real.jpg" width="500" />
 </p>
 
+## Citation
+
+```
+@misc{safiuddin2021establishing,
+      title={Establishing process-structure linkages using Generative Adversarial Networks}, 
+      author={Mohammad Safiuddin and CH Likith Reddy and Ganesh Vasantada and CHJNS Harsha and Srinu Gangolu},
+      year={2021},
+      eprint={2107.09402},
+      archivePrefix={arXiv},
+      primaryClass={cond-mat.mtrl-sci}
+}
+```
+
