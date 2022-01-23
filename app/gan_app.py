@@ -27,9 +27,9 @@ def main():
     first_run = not os.path.exists('state.json') 
     state = {}
     st.title("Microstructure GAN demo")
-    """This is a demonstration of conditional image generation of micrographs using [BigGAN-deep architecture](https://arxiv.org/abs/1809.11096)
+    """This is a demonstration of conditional image generation of micrographs using a modified architecture based on [BigGAN-deep](https://arxiv.org/abs/1809.11096)
        The images generated are using three conditional inputs Annealing Temperature, Annealing Time and the type of cooling used.
-       GAN is trained using [Omni Loss](https://arxiv.org/abs/2011.13074) on [UHCSDB](http://uhcsdb.materials.cmu.edu/) images"""
+       GAN is trained using [Omni Loss](https://arxiv.org/abs/2011.13074) on [UHCSDB](http://uhcsdb.materials.cmu.edu/) images. Details on the methodology can be found in the [paper](https://arxiv.org/abs/2107.09402)"""
     
     st.sidebar.title('Processing Conditions',)
     state['anneal_temp'] = st.sidebar.selectbox('Annealing Temperature °C',[700,750,800,900,970,1000,1100])
