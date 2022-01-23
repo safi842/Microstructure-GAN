@@ -17,6 +17,7 @@ seed = 864
 rng = np.random.RandomState(seed)
 latent_vector = rng.normal(0, 1, (1, 384))
 ```
+A GPU is not required to run this app.
 <p align="center">
   <img src="https://github.com/safi842/Microstructure-GAN/blob/0e8655e5c6db3e0bf0cd47461ee084d42cf06269/app/GAN%20App%20demo.png" width="1001" />
 </p>
