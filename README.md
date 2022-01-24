@@ -25,6 +25,7 @@ can produce high-fidelity multiphase microstructures which have a good correlati
   <img src="https://github.com/safi842/Microstructure-GAN/blob/main/docs/Gen%20vs%20Real.jpg" width="500" />
 </p>
 
+GAN App for generating micrographs can found [here](https://github.com/safi842/Microstructure-GAN/tree/main/app)
 ## Citation
 
 ```
