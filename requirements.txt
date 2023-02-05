@@ -1,6 +1,7 @@
-torch
 numpy
 streamlit
 pandas
-torchvision
 Pillow
+torch
+-f https://data.pyg.org/whl/torch-1.13.0+cpu.html
+torch-scatter
