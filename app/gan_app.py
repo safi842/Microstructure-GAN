@@ -1,12 +1,10 @@
 import numpy as np
 import os
 import json
+import urllib.request
 from PIL import Image
 import pickle
 import streamlit as st
-from streamlit.hashing import _CodeHasher
-from streamlit.report_thread import get_report_ctx
-from streamlit.server.server import Server
 import sys
 import urllib
 import torch
@@ -73,6 +71,9 @@ def main():
     
 @st.cache(suppress_st_warning=True)
 def load_gan():
+    if not os.path.isfile("BigGAN-deep.pth"):
+	url = "https://github.com/safi842/Microstructure-GAN/releases/download/v0/BigGAN-deep.pth"
+        filename, headers = urllib.request.urlretrieve(url, filename="BigGAN-deep.pth")
     model = biggan.Generator()
     model.load_state_dict(torch.load('BigGAN-deep.pth', map_location=torch.device('cpu')))
     return model
