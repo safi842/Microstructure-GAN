@@ -25,9 +25,18 @@ can produce high-fidelity multiphase microstructures which have a good correlati
   <img src="https://github.com/safi842/Microstructure-GAN/blob/main/docs/Gen%20vs%20Real.jpg" width="500" />
 </p>
 
-GAN App for generating micrographs can found [here](https://github.com/safi842/Microstructure-GAN/tree/main/app)
-## Citation
+### App 
+<p align="center">
+  <img src="https://github.com/safi842/Microstructure-GAN/blob/0e8655e5c6db3e0bf0cd47461ee084d42cf06269/app/GAN%20App%20demo.png" width="1500"/>
+</p>
 
+Micrographs can be saved using the *Save Image* button. They can be found in `app\Generated Micrographs`. The saved image's filename contains the processing conditions and the seed value. For example: `800-85H-Quench-864.png`. The latent vector used to generate the particular image can be reproduced using the `seed` as follows.
+```
+seed = 864
+rng = np.random.RandomState(seed)
+latent_vector = rng.normal(0, 1, (1, 384))
+```
+## Citation
 ```
 @misc{safiuddin2021establishing,
       title={Establishing process-structure linkages using Generative Adversarial Networks}, 
