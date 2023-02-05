@@ -1,5 +1,4 @@
 numpy
 streamlit
 pandas
-Pillow
 torch
