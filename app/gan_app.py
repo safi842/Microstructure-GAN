@@ -91,3 +91,4 @@ def generate_img(model,noise, y_temp, y_time, y_cool):
 
 
 main()
+st.markdown('<div style="text-align: center;">Copyright (c) 2021 Mohammad Safiuddin</div>', unsafe_allow_html=True)
