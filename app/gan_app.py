@@ -62,10 +62,10 @@ def main():
             state_old = json.load(fp)
         st.text(f"The following image was saved. It was generated using a random seed: {state_old['seed']}")
         st.image(np.array(state_old['image_out']), use_column_width=False)
-        if not os.path.exists('Generated Micrographs'):
-            os.makedirs('Generated Micrographs')
+        #if not os.path.exists('Generated Micrographs'):
+            #os.makedirs('Generated Micrographs')
         im = Image.fromarray((np.array(state_old['image_out']).reshape(256,256) * 255).astype(np.uint8))
-	st.download_button(label="Download Micrograph", data=im,file_name=f"{state_old['anneal_temp']}-{state_old['anneal_time']}-{state_old['cooling']}-{state_old['seed']}.png",mime='application/octet-stream')
+	st.download_button(label="Download Micrograph", data=im, file_name=f"{state_old['anneal_temp']}-{state_old['anneal_time']}-{state_old['cooling']}-{state_old['seed']}.png",mime='application/octet-stream')
         #im.save(f"./{state_old['anneal_temp']}-{state_old['anneal_time']}-{state_old['cooling']}-{state_old['seed']}.png")
     
     state['save_bool'] = save_bool
