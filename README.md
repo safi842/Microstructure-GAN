@@ -1,4 +1,5 @@
-## Microstructure-GAN &mdash; Pytorch Implementation [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://safi842-microstructure-gan-appgan-app-32c049.streamlit.app/)
+## Microstructure-GAN &mdash; Pytorch Implementation 
+### [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://safi842-microstructure-gan-appgan-app-32c049.streamlit.app/)
 
 
 ![Overview](https://github.com/safi842/Microstructure-GAN/blob/main/docs/Omni%20BigGAN%20-%20Overview.jpg)
@@ -35,7 +36,8 @@ The following files are included in this package:
 - `.\app`: a directory that contains the source code for the app. Further instructions on the app can be found below.
 
 ### Application 
-** If you want to run the app locally, follow the instructions below
+Click the *Open in Streamlit button underneath the heading to launch the app* \
+**If you want to run the app locally, follow the instructions below** 
 <p align="center">
   <img src="https://raw.githubusercontent.com/safi842/Microstructure-GAN/main/docs/GAN%20App%20demo.png" width="1500"/>
 </p>
@@ -54,4 +56,9 @@ streamlit run gan_app.py
 
 **Recreating Results:**
 
-Generated micrographs can be saved by clicking the "Save Image" button. They can be found in the `app\Generated Micrographs` directory. The file name of the saved image contains the processing conditions and seed value, for example: `800-85H-Quench-864.png`. To recreate the image, the latent vector can be generated using the `seed` as follows.
+Generated micrographs can be downloaded by clicking the "Download Micrograph" button. The file name of the saved image contains the processing conditions and seed value, for example: `800-85H-Quench-864.png`. To recreate the image, the latent vector can be generated using the `seed` as follows.
+```
+seed = 864
+rng = np.random.RandomState(seed)
+latent_vector = rng.normal(0, 1, (1, 384))
+```
