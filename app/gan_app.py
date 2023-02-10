@@ -1,4 +1,5 @@
 import numpy as np
+from io import BytesIO
 import os
 import json
 import requests
@@ -55,20 +56,12 @@ def main():
     st.text("")
     st.text(f"Random seed: {state['seed']}")
     st.image(np.array(state['image_out']), use_column_width=False)
-
-    save_bool = st.button('Save Image')
-    if save_bool:
-        with open('state.json', 'r') as fp:
-            state_old = json.load(fp)
-        st.text(f"The following image was saved. It was generated using a random seed: {state_old['seed']}")
-        st.image(np.array(state_old['image_out']), use_column_width=False)
-        #if not os.path.exists('Generated Micrographs'):
-            #os.makedirs('Generated Micrographs')
-        im = Image.fromarray((np.array(state_old['image_out']).reshape(256,256) * 255).astype(np.uint8))
-	st.download_button(data = im, filename = f"{state_old['anneal_temp']}-{state_old['anneal_time']}-{state_old['cooling']}-{state_old['seed']}.png", mime="application/octect-stream")
-        #im.save(f"./{state_old['anneal_temp']}-{state_old['anneal_time']}-{state_old['cooling']}-{state_old['seed']}.png")
-    
-    state['save_bool'] = save_bool
+    im = Image.fromarray((np.array(state['image_out']).reshape(256,256) * 255).astype(np.uint8))
+    buf =  BytesIO()
+    im.save(buf, format="PNG")
+    byte_im = buf.getvalue()
+    st.download_button(label = "Download Micrograph", data = byte_im , file_name = f"{state['anneal_temp']}-{state['anneal_time']}-{state['cooling']}-{state['seed']}.png", mime="image/png")
+ 
     with open('state.json', 'w') as fp:
         json.dump(state, fp, cls=NumpyEncoder)
         
@@ -100,14 +93,14 @@ def load_gan():
 
 @st.cache(suppress_st_warning=True)
 def generate_img(model,noise, y_temp, y_time, y_cool):
-	y_temp = torch.tensor([y_temp])
-	y_time = torch.tensor([y_time])
-	y_cool = torch.tensor([y_cool])
-	with torch.no_grad():
-		synthetic = model(noise, y_temp, y_time, y_cool)[0]
-		synthetic = 0.5 * synthetic + 0.5
-	#synthetic = make_grid(synthetic, normalize=True)
-	return np.transpose(synthetic.numpy() ,(1,2,0))
+    y_temp = torch.tensor([y_temp])
+    y_time = torch.tensor([y_time])
+    y_cool = torch.tensor([y_cool])
+    with torch.no_grad():
+        synthetic = model(noise, y_temp, y_time, y_cool)[0]
+        synthetic = 0.5 * synthetic + 0.5
+    #synthetic = make_grid(synthetic, normalize=True)
+    return np.transpose(synthetic.numpy() ,(1,2,0))
 
 main()
 st.markdown('<div style="text-align: center;">Copyright (c) 2023 Mohammad Safiuddin</div>', unsafe_allow_html=True)
