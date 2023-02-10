@@ -2,7 +2,7 @@
 
 ![Overview](https://github.com/safi842/Microstructure-GAN/blob/main/docs/Omni%20BigGAN%20-%20Overview.jpg)
 
-**Establishing process-structure linkages using Generative Adversarial Networks**<br>
+### Establishing process-structure linkages using Generative Adversarial Networks<br>
 Mohammad Safiuddin, Ch Likith Reddy, Ganesh Vasantada, CHJNS Harsha, Dr. Srinu Gangolu<br>
 
 Paper: https://arxiv.org/abs/2107.09402<br>
@@ -25,26 +25,31 @@ can produce high-fidelity multiphase microstructures which have a good correlati
   <img src="https://github.com/safi842/Microstructure-GAN/blob/main/docs/Gen%20vs%20Real.jpg" width="500" />
 </p>
 
-### App 
+#### File Overview
+
+The following files are included in this package:
+
+- `omni-loss-biggan.ipynb`: an Ipython notebook that contains the code used to train the model.
+- `new_metadata.xlsx`: an Excel workbook that holds the training image metadata.
+- `.\app`: a directory that contains the source code for the app. Further instructions on the app can be found below.
+
+### Application
 <p align="center">
   <img src="https://raw.githubusercontent.com/safi842/Microstructure-GAN/main/docs/GAN%20App%20demo.png" width="1500"/>
 </p>
 
-Micrographs can be saved using the *Save Image* button. They can be found in `app\Generated Micrographs`. The saved image's filename contains the processing conditions and the seed value. For example: `800-85H-Quench-864.png`. The latent vector used to generate the particular image can be reproduced using the `seed` as follows.
+To install the app, unzip the `.\Microstructure_GAN` folder. Next, navigate to the `.\Microstructure_GAN\app` directory in a terminal and run the following command to install the necessary packages:
+
 ```
-seed = 864
-rng = np.random.RandomState(seed)
-latent_vector = rng.normal(0, 1, (1, 384))
-```
-## Citation
-```
-@misc{safiuddin2021establishing,
-      title={Establishing process-structure linkages using Generative Adversarial Networks}, 
-      author={Mohammad Safiuddin and CH Likith Reddy and Ganesh Vasantada and CHJNS Harsha and Srinu Gangolu},
-      year={2021},
-      eprint={2107.09402},
-      archivePrefix={arXiv},
-      primaryClass={cond-mat.mtrl-sci}
-}
+pip install requirements.txt
 ```
 
+Once the packages have been installed, run the following command to start the web app:
+
+```
+streamlit run gan_app.py
+```
+
+**Recreating Results:**
+
+Generated micrographs can be saved by clicking the "Save Image" button. They can be found in the `app\Generated Micrographs` directory. The file name of the saved image contains the processing conditions and seed value, for example: `800-85H-Quench-864.png`. To recreate the image, the latent vector can be generated using the `seed` as follows.
