@@ -65,7 +65,7 @@ def main():
         if not os.path.exists('Generated Micrographs'):
             os.makedirs('Generated Micrographs')
         im = Image.fromarray((np.array(state_old['image_out']).reshape(256,256) * 255).astype(np.uint8))
-        im.save(f"./Generated Micrographs/{state_old['anneal_temp']}-{state_old['anneal_time']}-{state_old['cooling']}-{state_old['seed']}.png")
+        im.save(f"./{state_old['anneal_temp']}-{state_old['anneal_time']}-{state_old['cooling']}-{state_old['seed']}.png")
     
     state['save_bool'] = save_bool
     with open('state.json', 'w') as fp:
