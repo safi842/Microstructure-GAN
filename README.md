@@ -1,5 +1,5 @@
 ## Microstructure-GAN &mdash; Pytorch Implementation 
-### [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://safi842-microstructure-gan-appgan-app-32c049.streamlit.app/)
+## [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://safi842-microstructure-gan-appgan-app-32c049.streamlit.app/)
 
 
 ![Overview](https://github.com/safi842/Microstructure-GAN/blob/main/docs/Omni%20BigGAN%20-%20Overview.jpg)
