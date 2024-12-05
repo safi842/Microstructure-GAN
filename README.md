@@ -7,10 +7,10 @@
 ### Establishing process-structure linkages using Generative Adversarial Networks<br>
 Mohammad Safiuddin, Ch Likith Reddy, Ganesh Vasantada, CHJNS Harsha, Dr. Srinu Gangolu<br>
 
-Paper: https://arxiv.org/abs/2107.09402<br>
+Paper: http://dx.doi.org/10.1007/978-981-97-6367-2_39<br>
 
 [comment]: <> (Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, Timo Aila<br>)
-[comment]: <> (Paper: http://arxiv.org/abs/1912.04958<br>)
+[comment]: <> (Paper: http://dx.doi.org/10.1007/978-981-97-6367-2_39<br>)
 
 Abstract: *The microstructure of a material strongly influences its mechanical properties
 and the microstructure itself is influenced by the processing conditions. Thus,
